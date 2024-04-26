@@ -16,5 +16,5 @@ jobs:
         uses: docker-practice/actions-setup-docker@master
       - name: Run Postman Collection
         run: |
-          collectionPath="C:\Users\anita\OneDrive\Documentos\JalaSoft\Devops\Test\Apitest"
+          collectionPath="/home/runner/work/DevopsIItests/DevopsIItests/C/Users/anita/OneDrive/Documentos/JalaSoft/Devops/Test/Apitest"
           docker run -v $collectionPath:/etc/newman -t postman/newman:latest run "collection1.json" --reporters="cli"
