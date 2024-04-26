@@ -2,17 +2,19 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "ejercicio1" ]
+    branches: ["ejercicio1"]
   pull_request:
-    branches: [ "ejercicio1" ]
+    branches: ["ejercicio1"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - uses: actions/checkout@v4
+      - name: Install Docker
+        uses: docker-practice/actions-setup-docker@master
+      - name: Run Postman Collection
+        run: |
+          collectionPath="C:\Users\anita\OneDrive\Documentos\JalaSoft\Devops\Test\Apitest"
+          docker run -v $collectionPath:/etc/newman -t postman/newman:latest run "collection1.json" --reporters="cli"
