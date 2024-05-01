@@ -20,5 +20,5 @@ jobs:
       #     docker run -v $collectionPath:/etc/newman -t postman/newman:latest run "StorageService.postman_collection.json" --reporters="cli"
       - name: Run artillery tests
         run: |
-          artilleryPath = "/home/runner/work/DevopsIItests/DevopsIItests/Artillery"
+          artilleryPath="/home/runner/work/DevopsIItests/DevopsIItests/Artillery"
           docker run --rm -it -v $artilleryPath:/etc/artillery artilleryio/artillery:latest run /etc/artillery/api-perf-test.yml
