@@ -21,4 +21,4 @@ jobs:
       - name: Run artillery tests
         run: |
           artilleryPath="/home/runner/work/DevopsIItests/DevopsIItests/Artillery"
-          docker run --rm -it -v $artilleryPath:/etc/artillery artilleryio/artillery:latest run /etc/artillery/api-perf-test.yml
+          docker run --rm -v "$artilleryPath:/etc/artillery" artilleryio/artillery:latest run /etc/artillery/api-perf-test.yml
